@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<logger>
+  <Log>
+    <Severity>Info</Severity>
+    <Controller>LogIn</Controller>
+    <Date>29-Jul-21 03:57:32</Date>
+    <IdMsj>user@lppa.com</IdMsj>
+  </Log>
+  <Log>
+    <Severity>Info</Severity>
+    <Controller>LogOut</Controller>
+    <Date>29-Jul-21 03:57:36</Date>
+    <IdMsj>user@lppa.com</IdMsj>
+  </Log>
+  <Log>
+    <Severity>Info</Severity>
+    <Controller>LogIn</Controller>
+    <Date>29-Jul-21 03:57:40</Date>
+    <IdMsj>admin@lppa.com</IdMsj>
+  </Log>
+  <Log>
+    <Severity>Info</Severity>
+    <Controller>LogIn</Controller>
+    <Date>29-Jul-21 04:05:50</Date>
+    <IdMsj>admin@lppa.com</IdMsj>
+  </Log>
+  <Log>
+    <Severity>Info</Severity>
+    <Controller>LogIn</Controller>
+    <Date>29-Jul-21 04:07:51</Date>
+    <IdMsj>admin@lppa.com</IdMsj>
+  </Log>
+  <Log>
+    <Severity>Info</Severity>
+    <Controller>LogIn</Controller>
+    <Date>29-Jul-21 04:16:52</Date>
+    <IdMsj>admin@lppa.com</IdMsj>
+  </Log>
+</logger>

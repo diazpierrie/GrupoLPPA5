@@ -1,0 +1,75 @@
+﻿
+@{ Layout = null; }
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard Admin</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link href="~/Content/site.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar">
+        <a class="navbar-brandpx-3" href="~/Admin/Index">UAI-Market</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <ul>
+            <li>
+                <a class="nav-link" href="#">Cerrar Sesion</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                <div class="sidebar-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Home/Index"><i class="bi bi-bank custom-icon"></i> Sitio Web</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="~/Carrito/Index"><i class="bi bi-cart custom-icon"></i> Carritos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Producto/Index"><i class="bi bi-shop custom-icon"></i> Productos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Usuario/Index"><i class="bi bi-people custom-icon"></i> Usuarios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Factura/Index"><i class="bi bi-receipt custom-icon"></i> Facturas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Category/Index"><i class="bi bi-bag custom-icon"></i> Categorias Producto</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/CategoriaFiscal/Index"><i class="bi bi-bag custom-icon"></i> Categorias Fiscal</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Rol/Index"><i class="bi bi-person-lines-fill custom-icon"></i> Roles</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/FindLog/Find "><i class="bi bi-bug-fill custom-icon"></i> Logger</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </nav>
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+
+    @RenderSection("scripts", required: false)
+    <script src="~/Scripts/jquery-3.6.0.min.js"></script>
+    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript">$(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })</script>
+</body>
+</html>

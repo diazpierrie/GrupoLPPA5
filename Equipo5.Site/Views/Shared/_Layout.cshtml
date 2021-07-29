@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta name="viewport" content="width=device-width">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Lobster&family=Oswald:wght@300&family=Rubik:wght@300&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link href="~/Content/site.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/c26cd2166c.js"></script>
+
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="~/Home/Index">UAI Market</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href=" @Url.Action("Index","Home")">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Catálogo</a>
+                    </li>
+
+                    @{ if (User.IsInRole("Administrador"))
+                                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index","Admin")">Panel Admin</a>
+                        </li> }
+
+                                    if (!User.IsInRole("Administrador") && User.Identity.IsAuthenticated)
+                                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("MisCompras","Carts")">Mis Compras</a>
+                        </li> } }
+
+                </ul>&emsp;&emsp;
+
+                <a class="btn3" href="@Url.Action("MyCart","Carts")">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                    </svg>Carrito
+                </a>
+
+
+                &nbsp;   &nbsp;
+
+
+                @if (!User.Identity.IsAuthenticated)
+                {
+    <a class="btn5" href="~/Auth/LogIn" role="button">Ingresar</a> }
+                else
+                {
+    <a class="btn6" href="@Url.Action("LogOut", "Auth")" role="button">Salir</a>}
+
+                &nbsp;   &nbsp;
+
+                @if (!User.Identity.IsAuthenticated)
+                {
+    <a class="btn4" href="~/User/UserRegister" role="button">Registrate</a>}
+            </div>
+
+
+        </div>
+
+        <div class="carousel-user">
+
+
+            @if (User.Identity.IsAuthenticated)
+            {
+
+
+<a class="btn btn-primary" href="~/User/UserProfile">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
+        <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"></path>
+    </svg>
+    @User.Identity.Name
+
+</a>            }
+
+
+        </div>
+
+
+    </nav>
+    <section>@RenderBody()</section>
+
+
+
+    <!-- =========================================== -->
+
+    <section class="footer py-5">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-9 m-auto text-center">
+                    <h1>Estamos para ayudarte</h1>
+                    <input type="text" class="px-3" placeholder="Ingresa tu Email" />
+                    <button class="btn2">Enviar</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-11 py-5">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <h5 class="pb-3">Descubrí UAI Market</h5>
+                            <p>Promociones</p>
+                            <p>Sucursales</p>
+                            <p>Productos UAI Market</p>
+                        </div>
+                        <div class="col-lg-3">
+                            <h5 class="pb-3">Descubrí UAI Market</h5>
+                            <p>Promociones</p>
+                            <p>Sucursales</p>
+                            <p>Productos UAI Market</p>
+                        </div>
+                        <div class="col-lg-3">
+                            <h5 class="pb-3">Descubrí UAI Market</h5>
+                            <p>Promociones</p>
+                            <p>Sucursales</p>
+                            <p>Productos UAI Market</p>
+                        </div>
+                        <div class="col-lg-3">
+                            <h5 class="pb-3">Descubrí UAI Market</h5>
+                            <span><i class="fab fa-facebook"></i></span>
+                            <span><i class="fab fa-instagram"></i></span>
+                            <span><i class="fab fa-twitter"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <p class="text-center">LPPA 2021 - Grupo 6</p>
+        </div>
+    </section>
+
+    @RenderSection("scripts", required: false)
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="~/Scripts/jquery-3.6.0.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>
